@@ -1,21 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
-import SearchIcon from './search.svg';
+
 
 //Application Components
 import MainNavigation from './components/MainNavigation'
+import SearchForm from './components/SearchForm'
 
 class App extends Component {
   render() {
     return (
       <div className="container">
         
-        <form className="search-form">
-          <input type="search" name="search" placeholder="Search" required/>
-          <button type="submit" className="search-button">
-            <img src={SearchIcon} alt="SearchIcon" />
-          </button>
-        </form>
+        <SearchForm />
         <MainNavigation />
 
         <div className="photo-container">
