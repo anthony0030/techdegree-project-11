@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import axios from 'axios'
 import './App.css';
+import apiKey from './config'
 
 
 //Application Components
@@ -13,32 +15,41 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      images: [
-        "https://farm5.staticflickr.com/4334/37032996241_4c16a9b530.jpg",
-        "https://farm5.staticflickr.com/4342/36338751244_316b6ee54b.jpg",
-        "https://farm5.staticflickr.com/4343/37175099045_0d3a249629.jpg",
-        "https://farm5.staticflickr.com/4425/36337012384_ba3365621e.jpg"
-      ],
-      loading: false
+      images: [],
+      loading: true
     };
   }
 
+
+  componentDidMount() {
+    this.preformSearch();
+  }
+
+  preformSearch = (query = 'cats') => {
+    axios.get(` https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&text=${query}&format=json&nojsoncallback=1`)
+      .then(response => {
+        this.setState({
+          images:response.data.photos.photo,
+          loading: false
+        })
+      })
+      .catch(error => {
+      // handle error
+      console.log("Error Getting DATA", error);
+      })
+  }
 
 
   render() {
     return (
       <div className="container">
         
-        <SearchForm />
+        <SearchForm onSearch={this.preformSearch}/>
         <MainNavigation />
 
         <div className="photo-container">
           <h2>Results</h2>
-          {
-            (this.state.loading)
-            ? <p>loading...</p>
-            :<ImageList data={this.state.images}/>
-          }
+          { (this.state.loading) ? <p>loading...</p> : <ImageList data={this.state.images}/> }
         </div>
 
       </div>
@@ -47,3 +58,5 @@ class App extends Component {
 }
 
 export default App;
+
+//'<img src="https://farm' + farmId + '.staticflickr.com/' + serverId + '/' + id + '_' + secret + '.jpg"/>'
