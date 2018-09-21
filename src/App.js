@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import SearchIcon from './search.svg';
 
+//Application Components
+import MainNavigation from './components/MainNavigation'
+
 class App extends Component {
   render() {
     return (
@@ -13,14 +16,7 @@ class App extends Component {
             <img src={SearchIcon} alt="SearchIcon" />
           </button>
         </form>
-
-        <nav className="main-nav">
-          <ul>
-            <li><a href='#'>Cats</a></li>
-            <li><a href='#'>Dogs</a></li>
-            <li><a href='#'>Computers</a></li>
-          </ul>
-        </nav>
+        <MainNavigation />
 
         <div className="photo-container">
           <h2>Results</h2>
