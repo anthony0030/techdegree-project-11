@@ -27,7 +27,14 @@ class App extends Component {
 
   preformSearch = (query = 'cats') => {
     const numberOfImagesPerPage = 50;
-    axios.get(` https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=${numberOfImagesPerPage}&format=json&nojsoncallback=1`)
+    const safeSearch = 1;
+    
+    // Safe search setting:
+    // 1 for safe.
+    // 2 for moderate.
+    // 3 for restricted.
+
+    axios.get(` https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&safe_search=${safeSearch}&tags=${query}&per_page=${numberOfImagesPerPage}&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({
           images:response.data.photos.photo,
