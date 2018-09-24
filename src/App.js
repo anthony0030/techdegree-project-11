@@ -19,7 +19,8 @@ class App extends Component {
     super();
     this.state = {
       images: [],
-      loading: true
+      loading: true,
+      searchQuery: "cat"
     };
   }
 
@@ -28,7 +29,7 @@ class App extends Component {
     this.preformSearch();
   }
 
-  preformSearch = (query = 'cats') => {
+  preformSearch = (query = this.state.searchQuery) => {
     const numberOfImagesPerPage = 50;
     const safeSearch = 1;
     
@@ -41,7 +42,8 @@ class App extends Component {
       .then(response => {
         this.setState({
           images:response.data.photos.photo,
-          loading: false
+          loading: false,
+          searchQuery: query
         })
       })
       .catch(error => {
@@ -65,10 +67,10 @@ class App extends Component {
         <div className="container">
           <SearchForm onSearch={this.preformSearch}/>
           <MainNavigation />
-          <Galery title="Results" images={this.state.images} loading={this.state.loading}/>
+          <Galery title={this.state.searchQuery} images={this.state.images} loading={this.state.loading}/>
           <Switch>
             <Route exact path="/" component={NotFound}/>
-            <Route path="/:name" component={NotFound}/>
+            <Route path="/:query" render={() => <div>Home</div>}/>
             <Route component={NotFound}/>
           </Switch>
         </div>
