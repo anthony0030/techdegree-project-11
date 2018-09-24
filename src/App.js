@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import axios from 'axios'
 import './App.css';
 import apiKey from './config'
@@ -8,6 +9,7 @@ import apiKey from './config'
 import MainNavigation from './components/MainNavigation'
 import SearchForm from './components/SearchForm'
 import ImageList from './components/ImageList'
+import NotFound from './components/NotFound';
 
 class App extends Component {
 
@@ -50,17 +52,38 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
+
         
-        <SearchForm onSearch={this.preformSearch}/>
-        <MainNavigation />
 
-        <div className="photo-container">
-          <h2>Results</h2>
-          { (this.state.loading) ? <p>loading...</p> : <ImageList data={this.state.images}/> }
+
+
+
+
+
+      <BrowserRouter>
+        <div className="container">
+          <SearchForm onSearch={this.preformSearch}/>
+          <MainNavigation />
+
+          <div className="photo-container">
+            <h2>Results</h2>
+            { (this.state.loading) ? <p>loading...</p> : <ImageList data={this.state.images}/> }
+          </div>
+
+
+
+
+
+
+
+
+          <Switch>
+            <Route exact path="/" component={NotFound}/>
+            <Route path="/:name" component={NotFound}/>
+            <Route component={NotFound}/>
+          </Switch>
         </div>
-
-      </div>
+      </BrowserRouter>
     );
   }
 }
