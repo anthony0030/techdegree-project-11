@@ -8,7 +8,8 @@ import apiKey from './config'
 //Application Components
 import MainNavigation from './components/MainNavigation'
 import SearchForm from './components/SearchForm'
-import ImageList from './components/ImageList'
+import Galery from './components/Galery'
+
 import NotFound from './components/NotFound';
 
 class App extends Component {
@@ -64,19 +65,7 @@ class App extends Component {
         <div className="container">
           <SearchForm onSearch={this.preformSearch}/>
           <MainNavigation />
-
-          <div className="photo-container">
-            <h2>Results</h2>
-            { (this.state.loading) ? <p>loading...</p> : <ImageList data={this.state.images}/> }
-          </div>
-
-
-
-
-
-
-
-
+          <Galery title="Results" images={this.state.images} loading={this.state.loading}/>
           <Switch>
             <Route exact path="/" component={NotFound}/>
             <Route path="/:name" component={NotFound}/>
