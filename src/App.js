@@ -25,10 +25,6 @@ class App extends Component {
   }
 
 
-  componentDidMount() {
-    this.preformSearch();
-  }
-
   preformSearch = (query = this.state.searchQuery) => {
     const numberOfImagesPerPage = 50;
     const safeSearch = 1;
@@ -55,24 +51,37 @@ class App extends Component {
 
   render() {
     return (
-
-        
-
-
-
-
-
-
       <BrowserRouter>
         <div className="container">
           <SearchForm onSearch={this.preformSearch}/>
           <MainNavigation />
-          <Galery title={this.state.searchQuery} images={this.state.images} loading={this.state.loading}/>
+          
           <Switch>
-            <Route exact path="/" component={NotFound}/>
-            <Route path="/:query" render={() => <div>Home</div>}/>
-            <Route component={NotFound}/>
+
+            <Route exact path="/" render= {({match})=>
+              {
+                this.preformSearch(this.state.searchQuery)
+                return(
+                  <Galery title={this.state.searchQuery} images={this.state.images} loading={this.state.loading}/>
+                )
+              }
+            }/>
+
+
+
+
+            <Route path="/:query" render= {({match})=>
+              {
+                this.preformSearch(match.params.query)
+                return(
+                  <Galery title={this.state.searchQuery} images={this.state.images} loading={this.state.loading}/>
+                )
+              }
+            }/>
+
+
           </Switch>
+
         </div>
       </BrowserRouter>
     );
