@@ -4,8 +4,7 @@ import ImageList from './ImageList'
 const Galery = props => { 
   return(
     <div className="photo-container">
-      <h2>{props.title}</h2>
-      { (props.loading) ? <p>loading...</p> : <ImageList data={props.images}/> }
+      { (props.loading) ? <p>loading...</p> : <ImageList data={props.images} title={props.title}/> }
     </div>
   )
 }

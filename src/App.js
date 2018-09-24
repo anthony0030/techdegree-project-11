@@ -24,9 +24,9 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
-    this.preformSearch();
-  }
+  // componentDidMount() {
+  //   this.preformSearch();
+  // }
 
   preformSearch = (query = this.state.searchQuery) => {
     const numberOfImagesPerPage = 50;
@@ -69,7 +69,7 @@ class App extends Component {
                   this.preformSearch(match.params.query)
                 }
                 return(
-                  <Galery title={match.params.query} images={this.state.images} loading={this.state.loading}/>
+                  <Galery title={this.state.searchQuery} images={this.state.images} loading={this.state.loading}/>
                 )
               }
             }/>
