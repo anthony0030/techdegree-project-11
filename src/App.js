@@ -58,5 +58,3 @@ class App extends Component {
 }
 
 export default App;
-
-//'<img src="https://farm' + farmId + '.staticflickr.com/' + serverId + '/' + id + '_' + secret + '.jpg"/>'
