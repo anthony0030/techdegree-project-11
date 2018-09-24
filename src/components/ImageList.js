@@ -7,7 +7,7 @@ const ImageList = props => {
   let images;
   if (results.length > 0){
     images = results.map(image => 
-      <Image url={`https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`} key={image.id}/>
+      <Image url={`https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`} title={image.title} key={image.id}/>
     );
   }
   else{
