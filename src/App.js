@@ -24,6 +24,9 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    this.preformSearch();
+  }
 
   preformSearch = (query = this.state.searchQuery) => {
     const numberOfImagesPerPage = 50;
@@ -62,7 +65,9 @@ class App extends Component {
 
             <Route exact path="/:query" render= {({match})=>
               {
-                this.preformSearch(match.params.query)
+                if(match.params.query !== this.state.searchQuery){
+                  this.preformSearch(match.params.query)
+                }
                 return(
                   <Galery title={match.params.query} images={this.state.images} loading={this.state.loading}/>
                 )
