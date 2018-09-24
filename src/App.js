@@ -26,7 +26,7 @@ class App extends Component {
   }
 
   preformSearch = (query = 'cats') => {
-    axios.get(` https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&text=${query}&format=json&nojsoncallback=1`)
+    axios.get(` https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({
           images:response.data.photos.photo,
