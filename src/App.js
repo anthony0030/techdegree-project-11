@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 import axios from 'axios'
 import './App.css';
 import apiKey from './config'
@@ -58,27 +58,18 @@ class App extends Component {
           
           <Switch>
 
-            <Route exact path="/" render= {({match})=>
-              {
-                this.preformSearch(this.state.searchQuery)
-                return(
-                  <Galery title={this.state.searchQuery} images={this.state.images} loading={this.state.loading}/>
-                )
-              }
-            }/>
+            <Redirect exact from='/' to={this.state.searchQuery}/>
 
-
-
-
-            <Route path="/:query" render= {({match})=>
+            <Route exact path="/:query" render= {({match})=>
               {
                 this.preformSearch(match.params.query)
                 return(
-                  <Galery title={this.state.searchQuery} images={this.state.images} loading={this.state.loading}/>
+                  <Galery title={match.params.query} images={this.state.images} loading={this.state.loading}/>
                 )
               }
             }/>
 
+            <Route component={NotFound}/>
 
           </Switch>
 
