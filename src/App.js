@@ -66,7 +66,7 @@ class App extends Component {
           
           <Switch>
 
-            <Redirect exact from='/' to={this.state.searchQuery}/>
+            <Redirect exact from='/' to='cats'/>
 
             <Route exact path="/:query" render= {({match})=>
               {
