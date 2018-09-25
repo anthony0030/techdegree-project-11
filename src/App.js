@@ -8,7 +8,7 @@ import apiKey from './config'
 
 // lightbox
 import 'lightbox2/dist/css/lightbox.min.css';
-import 'lightbox2/dist/js/lightbox.min.js';
+import 'lightbox2/dist/js/lightbox-plus-jquery.min.js';
 
 //Application Components
 import MainNavigation from './components/MainNavigation'
