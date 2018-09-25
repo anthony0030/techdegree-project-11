@@ -34,7 +34,7 @@ class App extends Component {
   }
 
   preformSearch = (query = this.state.searchQuery) => {
-    const numberOfImagesPerPage = 50;
+    const numberOfImagesPerPage = 48;
     const safeSearch = 1;
     
     // Safe search setting:
