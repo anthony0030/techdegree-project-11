@@ -5,6 +5,12 @@ import './App.css';
 import apiKey from './config'
 
 
+
+// lightbox
+
+import jquery from 'jquery'
+import lightbox from 'lightbox2'
+
 //Application Components
 import MainNavigation from './components/MainNavigation'
 import SearchForm from './components/SearchForm'
