@@ -15,7 +15,6 @@ import MainNavigation from './components/MainNavigation'
 import SearchForm from './components/SearchForm'
 import Galery from './components/Galery'
 
-import NotFound from './components/NotFound';
 import E404 from './components/E404';
 
 class App extends Component {
