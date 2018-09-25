@@ -24,9 +24,9 @@ class App extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   this.preformSearch();
-  // }
+  componentDidMount() {
+    this.preformSearch();
+  }
 
   preformSearch = (query = this.state.searchQuery) => {
     const numberOfImagesPerPage = 50;
