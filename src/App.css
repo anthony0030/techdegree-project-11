@@ -54,6 +54,11 @@ input {
 .search-form button:hover {
   background-color: #275270;
 }
+.main-nav .active{
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
 .photo-container ul {
   display: flex;
   flex-flow: row wrap;
