@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Image = props => (
   <li>
@@ -7,5 +8,10 @@ const Image = props => (
     </a>
   </li>
 );
+
+Image.propTypes = {
+  title: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+}
 
 export default Image;

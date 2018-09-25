@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Image from './Image';
 import NotFound from './NotFound';
 
@@ -32,5 +33,10 @@ const ImageList = props => {
   }
 
 }
+
+ImageList.propTypes = {
+  data: PropTypes.array.isRequired,
+  title: PropTypes.string.isRequired,
+};
 
 export default ImageList;

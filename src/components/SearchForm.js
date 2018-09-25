@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import SearchIcon from './search.svg';
 import {withRouter} from 'react-router-dom';
 
@@ -35,5 +36,10 @@ class SearchForm extends Component {
     );
   }
 }
+
+
+SearchForm.propTypes = {
+  onSearch: PropTypes.func.isRequired
+};
 
 export default withRouter(SearchForm);

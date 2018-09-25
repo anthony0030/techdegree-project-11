@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ImageList from './ImageList'
 
 const Galery = props => { 
@@ -8,5 +9,11 @@ const Galery = props => {
     </div>
   )
 }
+
+Galery.propTypes = {
+  title: PropTypes.string.isRequired,
+  images: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired
+};
 
 export default Galery;
