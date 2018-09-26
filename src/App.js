@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import {BrowserRouter, Route, Switch, Redirect} from "react-router-dom";
-import axios from "axios"
+import axios from "axios";
 import "./App.css";
-import apiKey from "./config"
+import apiKey from "./config";
 
 
 
@@ -11,9 +11,9 @@ import "lightbox2/dist/css/lightbox.min.css";
 import "lightbox2/dist/js/lightbox-plus-jquery.min.js";
 
 //Application Components
-import MainNavigation from "./components/MainNavigation"
-import SearchForm from "./components/SearchForm"
-import Galery from "./components/Galery"
+import MainNavigation from "./components/MainNavigation";
+import SearchForm from "./components/SearchForm";
+import Galery from "./components/Galery";
 
 import E404 from "./components/E404";
 
@@ -73,7 +73,7 @@ class App extends Component {
             <Route exact path="/:query" render= {({match})=>
               {
                 if(match.params.query !== this.state.searchQuery){
-                  this.preformSearch(match.params.query)
+                  this.preformSearch(match.params.query);
                 }
                 return(
                   <Galery title={this.state.searchQuery} images={this.state.images} loading={this.state.loading}/>
