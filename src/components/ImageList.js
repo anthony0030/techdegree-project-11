@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Image from './Image';
 import NotFound from './NotFound';
 
-const ImageList = props => { 
+function ImageList(props){ 
   const results = props.data;
   const title = props.title;
   let gotResults = false;
