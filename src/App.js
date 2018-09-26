@@ -54,12 +54,16 @@ class App extends Component {
       })
   }
 
+    setLoading = () =>{
+      console.log(this)
+      this.setState({loading: true});
+    }
 
   render() {
     return (
       <BrowserRouter>
         <div className="container">
-          <SearchForm/>
+          <SearchForm setLoading={this.setLoading}/>
           <MainNavigation links={navLinks}/>
           
           <Switch>
