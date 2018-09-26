@@ -29,10 +29,6 @@ class App extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   this.preformSearch();
-  // }
-
   preformSearch = (query) => {
     const numberOfImagesPerPage = 48;
     const safeSearch = 1;
@@ -61,7 +57,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="container">
-          <SearchForm onSearch={this.preformSearch}/>
+          <SearchForm/>
           <MainNavigation />
           
           <Switch>
