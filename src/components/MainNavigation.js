@@ -8,7 +8,7 @@ function MainNavigation(props) {
       <ul>
         {
           props.links.map(
-            (link, index) => <li key={index}><NavLink exact to={link}>{link}</NavLink></li>
+            (link, index) => <li key={index} onClick={props.setLoading} ><NavLink exact to={link}>{link}</NavLink></li>
           )
         }
       </ul>
@@ -17,7 +17,8 @@ function MainNavigation(props) {
 };
 
 MainNavigation.propTypes = {
-  links: PropTypes.array.isRequired
+  links: PropTypes.array.isRequired,
+  setLoading: PropTypes.func.isRequired,
 }
 
 export default MainNavigation;
