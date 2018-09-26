@@ -29,11 +29,11 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
-    this.preformSearch();
-  }
+  // componentDidMount() {
+  //   this.preformSearch();
+  // }
 
-  preformSearch = (query = this.state.searchQuery) => {
+  preformSearch = (query) => {
     const numberOfImagesPerPage = 48;
     const safeSearch = 1;
     
