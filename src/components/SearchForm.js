@@ -5,10 +5,6 @@ import {withRouter} from "react-router-dom";
 
 class SearchForm extends Component {    
   
-  onSearchChange = e => {
-    this.setState({ searchText: e.target.value });
-  }
-  
   handleSubmit = e => {
     e.preventDefault();
     this.props.history.push(this.query.value);
