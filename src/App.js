@@ -17,6 +17,9 @@ import Galery from './components/Galery'
 
 import E404 from './components/E404';
 
+
+const navLinks = ["Cats", "Dogs", "Computers", "Coffee"];
+
 class App extends Component {
 
 
@@ -58,7 +61,7 @@ class App extends Component {
       <BrowserRouter>
         <div className="container">
           <SearchForm/>
-          <MainNavigation />
+          <MainNavigation links={navLinks}/>
           
           <Switch>
 
