@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
-import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
-import axios from 'axios'
-import './App.css';
-import apiKey from './config'
+import React, { Component } from "react";
+import {BrowserRouter, Route, Switch, Redirect} from "react-router-dom";
+import axios from "axios"
+import "./App.css";
+import apiKey from "./config"
 
 
 
 // lightbox
-import 'lightbox2/dist/css/lightbox.min.css';
-import 'lightbox2/dist/js/lightbox-plus-jquery.min.js';
+import "lightbox2/dist/css/lightbox.min.css";
+import "lightbox2/dist/js/lightbox-plus-jquery.min.js";
 
 //Application Components
-import MainNavigation from './components/MainNavigation'
-import SearchForm from './components/SearchForm'
-import Galery from './components/Galery'
+import MainNavigation from "./components/MainNavigation"
+import SearchForm from "./components/SearchForm"
+import Galery from "./components/Galery"
 
-import E404 from './components/E404';
+import E404 from "./components/E404";
 
 
 const navLinks = ["Cats", "Dogs", "Computers", "Coffee"];
@@ -65,7 +65,7 @@ class App extends Component {
           
           <Switch>
 
-            <Redirect exact from='/' to='cats'/>
+            <Redirect exact from="/" to="cats"/>
 
             <Route exact path="/:query" render= {({match})=>
               {

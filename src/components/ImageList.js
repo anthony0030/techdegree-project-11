@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Image from './Image';
-import NotFound from './NotFound';
+import React from "react";
+import PropTypes from "prop-types";
+import Image from "./Image";
+import NotFound from "./NotFound";
 
 function ImageList(props){ 
   const results = props.data;
