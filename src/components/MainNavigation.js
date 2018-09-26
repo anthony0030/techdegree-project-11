@@ -14,7 +14,7 @@ function MainNavigation(props) {
       </ul>
     </nav>
   )
-};
+}
 
 MainNavigation.propTypes = {
   links: PropTypes.array.isRequired,
