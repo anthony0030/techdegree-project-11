@@ -55,7 +55,6 @@ class App extends Component {
   }
 
     setLoading = () =>{
-      console.log(this)
       this.setState({loading: true});
     }
 
