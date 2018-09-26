@@ -4,9 +4,9 @@ import SearchIcon from "./search.svg";
 import {withRouter} from "react-router-dom";
 
 
-class SearchForm extends Component {    
-  
-  handleSubmit = e => {
+class SearchForm extends Component {
+
+  handleSubmit = (e) => {
     e.preventDefault();
     this.props.history.push(this.query.value);
     this.props.setLoading();
