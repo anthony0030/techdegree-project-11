@@ -7,7 +7,7 @@ function Galery(props) {
     <div className="photo-container">
       { (props.loading) ? <p>loading...</p> : <ImageList data={props.images} title={props.title}/> }
     </div>
-  )
+  );
 }
 
 Galery.propTypes = {

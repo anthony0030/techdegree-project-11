@@ -8,12 +8,12 @@ function Image(props){
         <img src={props.url} title={props.title} alt={props.title} />
       </a>
     </li>
-  )
+  );
 }
 
 Image.propTypes = {
   title: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
-}
+};
 
 export default Image;

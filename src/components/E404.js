@@ -9,7 +9,7 @@ function E404() {
         <img src={IMG404} alt="Logo" />
       </li>
     </ul>
-  )
+  );
 }
 
 export default E404;

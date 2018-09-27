@@ -9,7 +9,7 @@ function ImageList(props){
   let gotResults = false;
   let images;
   if (results.length > 0){
-    images = results.map(image => 
+    images = results.map( (image) => 
       <Image url={`https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`} title={image.title} key={image.id}/>
     );
     gotResults = true;
@@ -23,13 +23,13 @@ function ImageList(props){
             {images}
           </ul>
         </div>
-      )
+      );
   }else{
     return(
       <ul>
         <NotFound/>
       </ul>
-    )
+    );
   }
 
 }

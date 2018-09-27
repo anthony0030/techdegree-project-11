@@ -41,20 +41,20 @@ class App extends Component {
 
   preformSearch = (query) => {
     axios.get(` https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&safe_search=${safeSearch}&tags=${query}&per_page=${numberOfImagesPerPage}&format=json&nojsoncallback=1`)
-      .then(response => {
+      .then((response) => {
         this.setState({
           images:response.data.photos.photo,
           loading: false,
           searchQuery: query
         })
       })
-      .catch(error => {
+      .catch((error) => {
       // handle error
-      console.log("Error Getting DATA", error);
+      // console.log("Error Getting DATA", error);
       })
   }
 
-    setLoading = () =>{
+    setLoading = () => {
       this.setState({loading: true});
     }
 
@@ -69,7 +69,7 @@ class App extends Component {
 
             <Redirect exact from="/" to="cats"/>
 
-            <Route exact path="/:query" render= {({match})=>
+            <Route exact path="/:query" render= { ({match}) =>
               {
                 if(match.params.query !== this.state.searchQuery){
                   this.preformSearch(match.params.query);
