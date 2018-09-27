@@ -8,7 +8,7 @@ function MainNavigation(props) {
       <ul>
         {
           props.links.map(
-            (link, index) => <li key={index} onClick={props.setLoading} ><NavLink exact to={link}>{link}</NavLink></li>
+            (link, index) => <li key={index} onClick={props.setLoading} ><NavLink exact to={"/"+link}>{link}</NavLink></li>
           )
         }
       </ul>
