@@ -46,7 +46,7 @@ class App extends Component {
           images:response.data.photos.photo,
           loading: false,
           searchQuery: query
-        })
+        });
       })
       .catch((error) => {
       // handle error
@@ -76,7 +76,7 @@ class App extends Component {
                 }
                 return(
                   <Galery title={this.state.searchQuery} images={this.state.images} loading={this.state.loading}/>
-                )
+                );
               }
             }/>
 

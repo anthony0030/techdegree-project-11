@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ImageList from "./ImageList"
+import ImageList from "./ImageList";
 
 function Galery(props) { 
   return(

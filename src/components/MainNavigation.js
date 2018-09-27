@@ -34,6 +34,6 @@ MainNavigation.propTypes = {
   links: PropTypes.array.isRequired,
   setLoading: PropTypes.func.isRequired,
   previusSearch: PropTypes.string.isRequired,
-}
+};
 
 export default MainNavigation;
