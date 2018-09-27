@@ -8,8 +8,10 @@ class SearchForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.history.push(this.query.value);
-    this.props.setLoading();
+    if(this.query.value !== this.props.previusSearch){
+      this.props.history.push(this.query.value);
+      this.props.setLoading();
+    }
   }
 
 
@@ -32,6 +34,7 @@ class SearchForm extends Component {
 
 SearchForm.propTypes = {
   setLoading: PropTypes.func.isRequired,
+  previusSearch: PropTypes.string.isRequired,
 };
 
 export default withRouter(SearchForm);

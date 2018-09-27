@@ -62,7 +62,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="container">
-          <SearchForm setLoading={this.setLoading}/>
+          <SearchForm setLoading={this.setLoading} previusSearch={this.state.searchQuery}/>
           <MainNavigation links={navLinks} setLoading={this.setLoading}/>
           
           <Switch>
