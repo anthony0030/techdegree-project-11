@@ -51,7 +51,7 @@ class App extends Component {
       .catch((error) => {
       // handle error
       // console.log("Error Getting DATA", error);
-      })
+      });
   }
 
     setLoading = () => {
