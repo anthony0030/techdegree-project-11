@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Image from "./Image";
 import NotFound from "./NotFound";
 
+// Returns a list of images or a no results page depending on the data passed to it
 function ImageList(props){ 
   const results = props.data;
   const title = props.title;

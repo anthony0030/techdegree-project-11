@@ -39,6 +39,7 @@ class App extends Component {
     };
   }
 
+  // preformSearch requests data from flickr then sets the loading state to be false
   preformSearch = (query) => {
     axios.get(` https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&safe_search=${safeSearch}&tags=${query}&per_page=${numberOfImagesPerPage}&format=json&nojsoncallback=1`)
       .then((response) => {
@@ -54,9 +55,11 @@ class App extends Component {
       });
   }
 
-    setLoading = () => {
-      this.setState({loading: true});
-    }
+
+  //setLoading sets the state to be loading
+  setLoading = () => {
+    this.setState({loading: true});
+  }
 
   render() {
     return (
@@ -67,8 +70,10 @@ class App extends Component {
           
           <Switch>
 
+            {/*If you visit the root page it will take you to the cats page*/}
             <Redirect exact from="/" to="cats"/>
 
+          {/*Any path in the root directory will preform a search*/}
             <Route exact path="/:query" render= { ({match}) =>
               {
                 if(match.params.query !== this.state.searchQuery){
@@ -80,6 +85,7 @@ class App extends Component {
               }
             }/>
 
+          {/*any route like /:query/something will give a 404 error*/}
             <Route component={E404}/>
           </Switch>
 

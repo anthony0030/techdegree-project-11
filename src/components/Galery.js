@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import ImageList from "./ImageList";
 
+//returns a loading screen or a image list depending on the load prop
 function Galery(props) { 
   return(
     <div className="photo-container">

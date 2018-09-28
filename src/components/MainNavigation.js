@@ -5,6 +5,7 @@ import {NavLink} from "react-router-dom";
 
 class MainNavigation extends Component {
 
+  //if the link is different to the page you are on it will set the state to be loading
   handleSubmit = (e) => {
     if(e.target.textContent !== this.props.previusSearch){
       this.props.setLoading();
@@ -12,6 +13,7 @@ class MainNavigation extends Component {
   }
 
 
+  // returns a navigation with links pragmatically from an array of strings
   render() {
     return(
       <nav className="main-nav">

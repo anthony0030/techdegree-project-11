@@ -1,6 +1,7 @@
 import React from "react";
 import IMG404 from "./404.jpg";
 
+// returns a 404 error
 function E404() {
   return (
     <ul>

@@ -6,6 +6,7 @@ import {withRouter} from "react-router-dom";
 
 class SearchForm extends Component {
 
+// if the search query is different from the current one it will set the state to be loading and send the browser to the new search
   handleSubmit = (e) => {
     e.preventDefault();
     if(this.query.value !== this.props.previusSearch){
@@ -15,6 +16,7 @@ class SearchForm extends Component {
   }
 
 
+  // returns a search form
   render() {
     return (
       <form className="search-form" onSubmit={this.handleSubmit}>

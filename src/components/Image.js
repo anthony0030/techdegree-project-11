@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+// returns one image
 function Image(props){
   return(
     <li>

@@ -1,5 +1,6 @@
 import React from "react";
 
+// returns a not found page
 function NotFound(){
   return(
     <li className="not-found">
