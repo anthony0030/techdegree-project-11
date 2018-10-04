@@ -63,7 +63,7 @@ class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
+      <BrowserRouter basename="/techdegree-project-11">
         <div className="container">
           <SearchForm setLoading={this.setLoading} previusSearch={this.state.searchQuery}/>
           <MainNavigation links={navLinks} setLoading={this.setLoading} previusSearch={this.state.searchQuery}/>
@@ -71,7 +71,7 @@ class App extends Component {
           <Switch>
 
             {/*If you visit the root page it will take you to the cats page*/}
-            <Redirect exact from="/" to="cats"/>
+            <Redirect exact from="/" to="/Cats"/>
 
           {/*Any path in the root directory will preform a search*/}
             <Route exact path="/:query" render= { ({match}) =>
