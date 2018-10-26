@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {BrowserRouter, Route, Switch, Redirect} from "react-router-dom";
 import axios from "axios";
 import "./App.css";
-import apiKey from "./config";
+import dotenv from "dotenv";
 
 
 
@@ -17,6 +17,8 @@ import Galery from "./components/Galery";
 
 import E404 from "./components/E404";
 
+
+const apiKey = process.env.REACT_APP_FLICKR_API_KEY;
 
 const navLinks = ["Cats", "Dogs", "Computers", "Coffee"];
 const numberOfImagesPerPage = 48;
