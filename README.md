@@ -37,5 +37,18 @@ In order to publish to github pages, run the following command within the projec
 ```
 npm run-script deploy
 ```
- 
+
+
+#### Environment Variables
+
+```
+//.env
+
+# All environment variables must start with "REACT_APP_" in order to be imported.
+# Follow the example below...
+
+REACT_APP_VARIABLE_NAME=XXXXX
+
+```
+
 
