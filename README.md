@@ -36,7 +36,6 @@ In order to publish to github pages, run the following command within the projec
 
 ```
 npm run-script deploy
-
 ```
  
 
