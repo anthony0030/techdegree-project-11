@@ -37,8 +37,17 @@ class App extends Component {
     this.state = {
       images: [],
       loading: true,
-      searchQuery: ""
+      searchQuery: "",
+      previusSearch: ""
     };
+  }
+
+  HandleMainNavigationVisit = (event) => {
+    const searchQuery = event.target.textContent;
+    if(searchQuery !== this.state.previusSearch){
+      this.setLoading();
+      this.setState({ previusSearch: searchQuery });
+    }
   }
 
   // preformSearch requests data from flickr then sets the loading state to be false
@@ -68,7 +77,7 @@ class App extends Component {
       <BrowserRouter basename="/techdegree-project-11">
         <div className="container">
           <SearchForm setLoading={this.setLoading} previusSearch={this.state.searchQuery}/>
-          <MainNavigation links={navLinks} setLoading={this.setLoading} previusSearch={this.state.searchQuery}/>
+          <MainNavigation links={navLinks} HandleClick={this.HandleMainNavigationVisit}/>
           
           <Switch>
 
