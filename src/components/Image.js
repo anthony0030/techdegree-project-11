@@ -14,7 +14,7 @@ function Image(props){
 
 Image.propTypes = {
   title: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired
 };
 
 export default Image;
