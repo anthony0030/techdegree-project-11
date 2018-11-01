@@ -7,7 +7,7 @@ function E404() {
     <ul>
       <li className="not-found">
         <h1>404 someone took this page</h1>
-        <img src={IMG404} alt="Logo" />
+        <img src={IMG404} alt="Error 404 Page Not Found" />
       </li>
     </ul>
   );
