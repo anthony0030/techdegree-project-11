@@ -4,8 +4,6 @@ import axios from "axios";
 import "./App.css";
 import dotenv from "dotenv";
 
-
-
 // lightbox
 import "lightbox2/dist/css/lightbox.min.css";
 import "lightbox2/dist/js/lightbox-plus-jquery.min.js";
@@ -30,8 +28,6 @@ const safeSearch = 1;
 // 3 for restricted.
 
 class App extends Component {
-
-
   constructor() {
     super();
     this.state = {
@@ -61,16 +57,15 @@ class App extends Component {
         });
       })
       .catch((error) => {
-      // handle error
-      // console.log("Error Getting DATA", error);
+        // handle error
+        // console.log("Error Getting DATA", error);
       });
-  }
-
+  };
 
   //setLoading sets the state to be loading
   setLoading = () => {
     this.setState({loading: true});
-  }
+  };
 
   render() {
     return (
