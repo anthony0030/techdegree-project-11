@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import ImageList from "./ImageList";
 
 //returns a loading screen or a image list depending on the load prop
-function Galery(props) { 
+function Galery(props) {
   return(
     <div className="photo-container">
       { (props.loading) ? <p>loading...</p> : <ImageList data={props.images} title={props.title}/> }
