@@ -10,7 +10,7 @@ function Galery(props) {
       { loading ?
         <p>loading...</p>
         :
-        <ImageList data={images} title={title}/>
+        <ImageList results={images} title={title}/>
       }
     </div>
   );
