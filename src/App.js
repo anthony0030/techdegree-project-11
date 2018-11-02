@@ -27,8 +27,7 @@ class App extends Component {
       safeSearch: 1,
       images: [],
       loading: true,
-      searchQuery: "",
-      previusSearch: ""
+      searchQuery: ""
     };
   }
 
@@ -37,7 +36,6 @@ class App extends Component {
     console.log("componentWillMount")
     this.setState({ 
       searchQuery: this.props.location.pathname.replace("/", ""),
-      previusSearch: ""
     });
   }
 
@@ -62,8 +60,8 @@ class App extends Component {
 
   // preformSearch requests data from flickr then sets the loading state to be false
   preformSearch = (query) => {
-    console.log(query !== this.state.previusSearch)
-    if(query !== this.state.previusSearch && Search){
+    console.log(query !== this.state.searchQuery)
+    if(query !== this.state.searchQuery && Search){
       Search = false
       const SearchUrl = 
         `
@@ -83,7 +81,6 @@ class App extends Component {
         this.setState( (state, props) =>({
           images: response.data.photos.photo,
           loading: false,
-          previusSearch: query,
           searchQuery: query
         }));
         Search = true;
@@ -97,7 +94,7 @@ class App extends Component {
 
   //setLoading sets the state to be loading
   setLoading = (searchQuery) => {
-    if(searchQuery !== this.state.previusSearch){
+    if(searchQuery !== this.state.searchQuery){
       this.setState({ loading: true });
       return true;
     }
