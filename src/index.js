@@ -6,17 +6,12 @@ import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
 
 
-class Index extends Component {
-  render() {
-    return(
-      <BrowserRouter basename="/techdegree-project-11">
-        <App/>
-      </BrowserRouter>
-    );
-  }
-}
+ReactDOM.render(
+  <BrowserRouter basename="/techdegree-project-11">
+    <App/>
+  </BrowserRouter>
+  ,
+  document.getElementById("root")
+);
 
-
-
-ReactDOM.render(<Index />, document.getElementById("root"));
 registerServiceWorker();
