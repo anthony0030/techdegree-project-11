@@ -60,6 +60,9 @@ input {
 .main-nav .active{
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
+.photo-container img {
+  cursor: pointer;
+}
 .photo-container ul {
   display: flex;
   flex-flow: row wrap;

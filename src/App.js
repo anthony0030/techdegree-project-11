@@ -4,8 +4,8 @@ import axios from "axios";
 import "./App.css";
 
 // lightbox
-import "lightbox2/dist/css/lightbox.min.css";
-import "lightbox2/dist/js/lightbox-plus-jquery.min.js";
+import Lightbox from 'lightbox-react';
+import 'lightbox-react/style.css'; // This only needs to be imported once in your app
 
 //Application Components
 import MainNavigation from "./components/MainNavigation";
@@ -27,7 +27,9 @@ class App extends Component {
       safeSearch: 1,
       images: [],
       loading: true,
-      searchQuery: ""
+      searchQuery: "",
+      photoIndex: 0,
+      isOpen: false
     };
   }
 
@@ -41,6 +43,20 @@ class App extends Component {
     const searchQuery = event.target.textContent.toLowerCase();
     this.setLoading(searchQuery);
   }
+
+
+  BuildFlikerUrl(image){
+    return(`https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`)
+  }
+
+  HandleImageClick = (event) => {
+    const photoIndex = event.target.getAttribute('index')
+    this.setState({ 
+      isOpen: true,
+      photoIndex: photoIndex
+    })
+  }
+
 
 // if the search query is different from the current one it will set the state to be loading and send the browser to the new search
   HandleSearch = (event) => {
@@ -96,8 +112,31 @@ class App extends Component {
   };
 
   render() {
+    const { photoIndex, isOpen, images } = this.state;
     return (
       <div className="container size-101vh">
+
+        {isOpen && (
+          <Lightbox
+            mainSrc={this.BuildFlikerUrl(images[photoIndex])}
+            nextSrc={this.BuildFlikerUrl(images[(photoIndex + 1) % images.length])}
+            prevSrc={this.BuildFlikerUrl(images[(photoIndex + images.length - 1) % images.length])}
+            imageTitle={images[photoIndex].title}
+            imageCaption={images[photoIndex].title}
+            onCloseRequest={() => this.setState({ isOpen: false })}
+            onMovePrevRequest={() =>
+              this.setState({
+                photoIndex: (photoIndex + images.length - 1) % images.length,
+              })
+            }
+            onMoveNextRequest={() =>
+              this.setState({
+                photoIndex: (photoIndex + 1) % images.length,
+              })
+            }
+          />
+        )}
+
         <SearchForm 
           HandleSearch={this.HandleSearch}
           searchQuery={this.state.searchQuery}
@@ -119,6 +158,8 @@ class App extends Component {
                 title={this.state.searchQuery}
                 images={this.state.images}
                 loading={this.state.loading}
+                HandleImageClick={this.HandleImageClick}
+                BuildFlikerUrl={this.BuildFlikerUrl}
               />
             );
           }}/>

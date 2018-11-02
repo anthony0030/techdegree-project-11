@@ -3,19 +3,19 @@ import PropTypes from "prop-types";
 
 // returns one image
 function Image(props) {
-  const { url, title } = props;
+  const { url, title, index, HandleImageClick } = props;
   return(
     <li>
-      <a href={url} data-lightbox="search" data-title={title}>
-        <img src={url} title={title} alt={title} />
-      </a>
+      <img src={url} title={title} index={index} alt={title} onClick={HandleImageClick}/>
     </li>
   );
 }
 
 Image.propTypes = {
   title: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired
+  url: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
+  HandleImageClick: PropTypes.func.isRequired
 };
 
 export default Image;
