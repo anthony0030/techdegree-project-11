@@ -15,6 +15,7 @@ import Galery from "./components/Galery";
 import E404 from "./components/E404";
 
 
+let Search = true;
 
 class App extends Component {
   constructor() {
@@ -29,6 +30,15 @@ class App extends Component {
       searchQuery: "",
       previusSearch: ""
     };
+  }
+
+
+  componentWillMount(){
+    console.log("componentWillMount")
+    this.setState({ 
+      searchQuery: this.props.location.pathname.replace("/", ""),
+      previusSearch: ""
+    });
   }
 
 // Safe search setting:
@@ -52,8 +62,9 @@ class App extends Component {
 
   // preformSearch requests data from flickr then sets the loading state to be false
   preformSearch = (query) => {
-
-    if(query !== this.state.previusSearch){
+    console.log(query !== this.state.previusSearch)
+    if(query !== this.state.previusSearch && Search){
+      Search = false
       const SearchUrl = 
         `
           https://api.flickr.com/services/rest/
@@ -72,9 +83,10 @@ class App extends Component {
         this.setState( (state, props) =>({
           images: response.data.photos.photo,
           loading: false,
-          previusSearch: state.searchQuery,
+          previusSearch: query,
           searchQuery: query
         }));
+        Search = true;
       })
       .catch((error) => {
         // handle error
