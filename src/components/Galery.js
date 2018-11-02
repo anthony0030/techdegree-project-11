@@ -4,9 +4,14 @@ import ImageList from "./ImageList";
 
 //returns a loading screen or a image list depending on the load prop
 function Galery(props) {
+   const {images, title, loading} = props;
   return(
     <div className="photo-container">
-      { (props.loading) ? <p>loading...</p> : <ImageList data={props.images} title={props.title}/> }
+      { loading ?
+        <p>loading...</p>
+        :
+        <ImageList data={images} title={title}/>
+      }
     </div>
   );
 }
