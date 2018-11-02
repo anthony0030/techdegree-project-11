@@ -15,12 +15,12 @@ import Galery from "./components/Galery";
 import E404 from "./components/E404";
 
 
-const apiKey = process.env.REACT_APP_FLICKR_API_KEY;
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
+      apiKey: process.env.REACT_APP_FLICKR_API_KEY,
       navLinks: ["Cats", "Dogs", "Computers", "Coffee"],
       numberOfImagesPerPage: 48,
       safeSearch: 1,
@@ -53,7 +53,7 @@ class App extends Component {
   // preformSearch requests data from flickr then sets the loading state to be false
   preformSearch = (query) => {
     if(query !== this.state.previusSearch){
-    axios.get(` https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&safe_search=${this.state.safeSearch}&tags=${query}&per_page=${this.state.numberOfImagesPerPage}&format=json&nojsoncallback=1`)
+    axios.get(` https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${this.state.apiKey}&safe_search=${this.state.safeSearch}&tags=${query}&per_page=${this.state.numberOfImagesPerPage}&format=json&nojsoncallback=1`)
       .then((response) => {
         this.setState( (state, props) =>({
           images: response.data.photos.photo,
