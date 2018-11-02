@@ -2,11 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 
 // returns one image
-function Image(props){
+function Image(props) {
+  const { url, title } = props;
   return(
     <li>
-      <a href={props.url} data-lightbox="search" data-title={props.title}>
-        <img src={props.url} title={props.title} alt={props.title} />
+      <a href={url} data-lightbox="search" data-title={title}>
+        <img src={url} title={title} alt={title} />
       </a>
     </li>
   );
