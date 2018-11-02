@@ -17,25 +17,24 @@ import E404 from "./components/E404";
 
 const apiKey = process.env.REACT_APP_FLICKR_API_KEY;
 
-const navLinks = ["Cats", "Dogs", "Computers", "Coffee"];
-const numberOfImagesPerPage = 48;
-const safeSearch = 1;
-
-// Safe search setting:
-// 1 for safe.
-// 2 for moderate.
-// 3 for restricted.
-
 class App extends Component {
   constructor() {
     super();
     this.state = {
+      navLinks: ["Cats", "Dogs", "Computers", "Coffee"],
+      numberOfImagesPerPage: 48,
+      safeSearch: 1,
       images: [],
       loading: true,
       searchQuery: "",
       previusSearch: ""
     };
   }
+
+// Safe search setting:
+// 1 for safe.
+// 2 for moderate.
+// 3 for restricted.
 
   HandleMainNavigationVisit = (event) => {
     const searchQuery = event.target.textContent.toLowerCase();
@@ -54,7 +53,7 @@ class App extends Component {
   // preformSearch requests data from flickr then sets the loading state to be false
   preformSearch = (query) => {
     if(query !== this.state.previusSearch){
-    axios.get(` https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&safe_search=${safeSearch}&tags=${query}&per_page=${numberOfImagesPerPage}&format=json&nojsoncallback=1`)
+    axios.get(` https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&safe_search=${this.state.safeSearch}&tags=${query}&per_page=${this.state.numberOfImagesPerPage}&format=json&nojsoncallback=1`)
       .then((response) => {
         this.setState( (state, props) =>({
           images: response.data.photos.photo,
@@ -83,7 +82,7 @@ class App extends Component {
     return (
       <div className="container size-101vh">
         <SearchForm HandleSearch={this.HandleSearch} searchQuery={this.state.searchQuery}/>
-        <MainNavigation links={navLinks} HandleClick={this.HandleMainNavigationVisit}/>
+        <MainNavigation links={this.state.navLinks} HandleClick={this.HandleMainNavigationVisit}/>
         <Switch>
 
           {/*If you visit the root page it will take you to the cats page*/}
