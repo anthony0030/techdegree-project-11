@@ -82,7 +82,7 @@ class App extends Component {
   //setLoading sets the state to be loading
   setLoading = (searchQuery) => {
     if(searchQuery !== this.state.previusSearch){
-      this.setState({loading: true});
+      this.setState({ loading: true });
       return true;
     }
     return false;
@@ -91,8 +91,14 @@ class App extends Component {
   render() {
     return (
       <div className="container size-101vh">
-        <SearchForm HandleSearch={this.HandleSearch} searchQuery={this.state.searchQuery}/>
-        <MainNavigation links={this.state.navLinks} HandleClick={this.HandleMainNavigationVisit}/>
+        <SearchForm 
+          HandleSearch={this.HandleSearch}
+          searchQuery={this.state.searchQuery}
+        />
+        <MainNavigation
+          links={this.state.navLinks}
+          HandleClick={this.HandleMainNavigationVisit}
+        />
         <Switch>
 
           {/*If you visit the root page it will take you to the cats page*/}
@@ -101,11 +107,17 @@ class App extends Component {
           {/*Any path in the root directory will preform a search*/}
           <Route exact path="/:query" render= { ({match}) =>{
             this.preformSearch(match.params.query);
-            return( <Galery title={this.state.searchQuery} images={this.state.images} loading={this.state.loading}/> );
+            return(
+              <Galery
+                title={this.state.searchQuery}
+                images={this.state.images}
+                loading={this.state.loading}
+              />
+            );
           }}/>
 
           {/*any route like /:query/something will give a 404 error*/}
-          <Route component={E404}/>
+          <Route component={E404} />
 
         </Switch>
       </div>
