@@ -32,13 +32,6 @@ class App extends Component {
   }
 
 
-  componentWillMount(){
-    console.log("componentWillMount")
-    this.setState({ 
-      searchQuery: this.props.location.pathname.replace("/", ""),
-    });
-  }
-
 // Safe search setting:
 // 1 for safe.
 // 2 for moderate.
@@ -60,9 +53,10 @@ class App extends Component {
 
   // preformSearch requests data from flickr then sets the loading state to be false
   preformSearch = (query) => {
-    console.log(query !== this.state.searchQuery)
-    if(query !== this.state.searchQuery && Search){
-      Search = false
+    console.log("Search query is diferant from the current one:", query !== this.state.searchQuery, query, this.state.searchQuery)
+    console.log("Program is allowed to search for images on api:", Search)
+    if((query !== this.state.searchQuery) && Search){
+      Search = false;
       const SearchUrl = 
         `
           https://api.flickr.com/services/rest/
