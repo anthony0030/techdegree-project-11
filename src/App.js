@@ -53,8 +53,8 @@ class App extends Component {
 
   // preformSearch requests data from flickr then sets the loading state to be false
   preformSearch = (query) => {
-    console.log("Search query is diferant from the current one:", query !== this.state.searchQuery, query, this.state.searchQuery)
-    console.log("Program is allowed to search for images on api:", allowSearch)
+    // console.log("Search query is diferant from the current one:", query !== this.state.searchQuery, query, this.state.searchQuery)
+    // console.log("Program is allowed to search for images on api:", allowSearch)
     if((query !== this.state.searchQuery) && allowSearch){
       allowSearch = false;
       const SearchUrl = 
