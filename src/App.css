@@ -15,6 +15,9 @@ ul {
 a {
   text-decoration: none;
 }
+.size-101vh{
+  height: 101vh; /*this is to prevent the small flash while the content is loading on computers that don't always show the scrollbar*/
+}
 .search-form {
   max-width: 460px;
   display: flex;
