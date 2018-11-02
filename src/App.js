@@ -98,23 +98,20 @@ class App extends Component {
           {/*If you visit the root page it will take you to the cats page*/}
           <Redirect exact from="/" to="/cats"/>
 
+          {/*Any path in the root directory will preform a search*/}
+          <Route exact path="/:query" render= { ({match}) =>{
+            this.preformSearch(match.params.query);
+            return( <Galery title={this.state.searchQuery} images={this.state.images} loading={this.state.loading}/> );
+          }}/>
 
-
-        {/*Any path in the root directory will preform a search*/}
-          <Route exact path="/:query" render= { ({match}) =>
-            {
-              this.preformSearch(match.params.query);
-              return( <Galery title={this.state.searchQuery} images={this.state.images} loading={this.state.loading}/> );
-            }
-          }/>
-
-        {/*any route like /:query/something will give a 404 error*/}
+          {/*any route like /:query/something will give a 404 error*/}
           <Route component={E404}/>
+
         </Switch>
       </div>
     );
   }
-}
+} //End of App
 
 
 export default withRouter(App);
