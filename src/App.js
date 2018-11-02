@@ -53,7 +53,17 @@ class App extends Component {
   // preformSearch requests data from flickr then sets the loading state to be false
   preformSearch = (query) => {
     if(query !== this.state.previusSearch){
-    axios.get(` https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${this.state.apiKey}&safe_search=${this.state.safeSearch}&tags=${query}&per_page=${this.state.numberOfImagesPerPage}&format=json&nojsoncallback=1`)
+    axios.get(`
+      https://api.flickr.com/services/rest/
+      ?method=flickr.photos.search
+      &api_key=${this.state.apiKey}
+      &safe_search=${this.state.safeSearch}
+      &tags=${query}
+      &per_page=${this.state.numberOfImagesPerPage}
+      &format=json
+      &nojsoncallback=1
+    `.replace(/\s/g, '') // This will remove the spaces from the multi-line code indentation //
+    )
       .then((response) => {
         this.setState( (state, props) =>({
           images: response.data.photos.photo,
