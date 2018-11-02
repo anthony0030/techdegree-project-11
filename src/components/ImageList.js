@@ -27,9 +27,7 @@ function ImageList(props){
       );
   }else{
     return(
-      <ul>
-        <NotFound title={title}/>
-      </ul>
+      <NotFound title={title}/>
     );
   }
 
