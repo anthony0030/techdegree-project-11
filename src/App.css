@@ -58,15 +58,12 @@ input {
   background-color: #275270;
 }
 .main-nav .active{
-  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 .photo-container ul {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  -ms-align-items: flex-start;
   align-items: flex-start;
 }
 .photo-container ul li {
@@ -87,7 +84,7 @@ input {
   width: 100%;
 }
 
-@media only screen and (max-width: 767px)  {
+@media only screen and (max-width: 767px) {
   body {
     padding-top: 2em;
   }
@@ -96,7 +93,7 @@ input {
   }
 }
 
-@media only screen and (min-width: 768px)  {
+@media only screen and (min-width: 768px) {
   body {
     padding-top: 4em;
   }
