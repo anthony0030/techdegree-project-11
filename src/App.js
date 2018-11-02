@@ -15,7 +15,7 @@ import Galery from "./components/Galery";
 import E404 from "./components/E404";
 
 
-let Search = true;
+let allowSearch = true;
 
 class App extends Component {
   constructor() {
@@ -54,9 +54,9 @@ class App extends Component {
   // preformSearch requests data from flickr then sets the loading state to be false
   preformSearch = (query) => {
     console.log("Search query is diferant from the current one:", query !== this.state.searchQuery, query, this.state.searchQuery)
-    console.log("Program is allowed to search for images on api:", Search)
-    if((query !== this.state.searchQuery) && Search){
-      Search = false;
+    console.log("Program is allowed to search for images on api:", allowSearch)
+    if((query !== this.state.searchQuery) && allowSearch){
+      allowSearch = false;
       const SearchUrl = 
         `
           https://api.flickr.com/services/rest/
@@ -77,7 +77,7 @@ class App extends Component {
           loading: false,
           searchQuery: query
         }));
-        Search = true;
+        allowSearch = true;
       })
       .catch((error) => {
         // handle error
