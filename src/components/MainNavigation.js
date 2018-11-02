@@ -11,7 +11,7 @@ function MainNavigation(props) {
         {
           props.links.map( (link, index) =>
             <li key={index} onClick={props.HandleClick} >
-              <NavLink exact to={`/${link}`}>{link}</NavLink>
+              <NavLink exact to={`/${link.toLowerCase()}`}>{link}</NavLink>
             </li>
           )
         }
