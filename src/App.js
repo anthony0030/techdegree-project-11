@@ -62,7 +62,7 @@ class App extends Component {
       &per_page=${this.state.numberOfImagesPerPage}
       &format=json
       &nojsoncallback=1
-    `.replace(/\s/g, '') // This will remove the spaces from the multi-line code indentation //
+    `.replace(/\s+/g, "") // This will remove the spaces from the multi-line code indentation //
     )
       .then((response) => {
         this.setState( (state, props) =>({
