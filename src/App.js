@@ -4,8 +4,8 @@ import axios from "axios";
 import "./App.css";
 
 // lightbox
-import Lightbox from 'lightbox-react';
-import 'lightbox-react/style.css'; // This only needs to be imported once in your app
+import Lightbox from "lightbox-react";
+import "lightbox-react/style.css"; // This only needs to be imported once in your app
 
 //Application Components
 import MainNavigation from "./components/MainNavigation";
@@ -53,15 +53,15 @@ class App extends Component {
 
 
   BuildFlikerUrl(image){
-    return(`https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`)
+    return(`https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`);
   }
 
   HandleImageClick = (event) => {
-    const photoIndex = event.target.getAttribute('index')
+    const photoIndex = event.target.getAttribute("index");
     this.setState({ 
       isOpen: true,
       photoIndex: photoIndex
-    })
+    });
   }
 
   setSafeSearch = (event) => {
@@ -84,7 +84,7 @@ class App extends Component {
     event.preventDefault();
     const searchQuery = event.target.querySelector("#SearchQery").value.toLowerCase();
     if( this.setLoading(searchQuery)){
-      this.props.history.push(`/${searchQuery}`)
+      this.props.history.push(`/${searchQuery}`);
     }
   }
 
@@ -107,13 +107,13 @@ class App extends Component {
           &nojsoncallback=1
           &tags=${query}
           &page=${page}
-        `.replace(/\s+/g, "")// This will remove the spaces from the multi-line code indentation //
+        `.replace(/\s+/g, "");// This will remove the spaces from the multi-line code indentation //
 
       axios
       .get(SearchUrl)
       .then((response) => {
         // console.log(response.data);
-        this.setState( (state, props) =>({
+        this.setState( (state, props) => ({
           images: response.data.photos.photo,
           amountOfResults: response.data.photos.total,
           numberOfPages: response.data.photos.pages,
@@ -195,7 +195,7 @@ class App extends Component {
           <Redirect exact from="/:query" to="/:query/1"/>
 
           {/*Any path in the root directory will preform a search*/}
-          <Route exact path="/:query/:page?" render= { ({match}) =>{
+          <Route exact path="/:query/:page?" render= { ({match}) => {
             this.preformSearch(match.params.query, match.params.page);
             return(
               <Galery
