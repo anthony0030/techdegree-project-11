@@ -134,7 +134,7 @@ class App extends Component {
 
 
   render() {
-    const { photoIndex, isOpen, images, amount, numberOfPages, curentPage } = this.state;
+    const { photoIndex, isOpen, images, amount, numberOfPages, curentPage, searchQuery, navLinks, loading, HandleSearch } = this.state;
     return (
       <div className="container size-101vh">
 
@@ -161,10 +161,10 @@ class App extends Component {
 
         <SearchForm 
           HandleSearch={this.HandleSearch}
-          searchQuery={this.state.searchQuery}
+          searchQuery={this.searchQuery}
         />
         <MainNavigation
-          links={this.state.navLinks}
+          links={navLinks}
           HandleClick={this.HandleMainNavigationVisit}
         />
         <Switch>
@@ -177,12 +177,12 @@ class App extends Component {
             this.preformSearch(match.params.query);
             return(
               <Galery
-                title={this.state.searchQuery}
-                images={this.state.images}
+                title={searchQuery}
+                images={images}
                 amount={amount}
                 curentPage={curentPage}
                 numberOfPages={numberOfPages}
-                loading={this.state.loading}
+                loading={loading}
                 HandleImageClick={this.HandleImageClick}
                 BuildFlikerUrl={this.BuildFlikerUrl}
                 setPage={this.setPage}
