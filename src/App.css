@@ -63,20 +63,21 @@ input {
 .photo-container img {
   cursor: pointer;
 }
-.photo-container ul {
+.photo-container ul.photo-results {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: flex-start;
 }
-.photo-container ul li {
+.photo-container ul.photo-results li {
   width: 220px;
   height: 165px;
   overflow: hidden;
   margin-bottom: 15px;
 }
-.photo-container ul img {
+.photo-container ul.photo-results img {
   width: 100%;
+  height: 100%;
   transform: scale(1.25);
   transition: transform 1.25s;
 }

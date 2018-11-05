@@ -24,7 +24,7 @@ function ImageList(props) {
       <React.Fragment>
         <h2>{title}</h2>
         <small>total results: {amount}</small>
-        <ul>{images}</ul>
+        <ul className="photo-results">{images}</ul>
       </React.Fragment>
     :
     <NotFound title={title} /> 
