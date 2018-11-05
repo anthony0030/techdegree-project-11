@@ -43,7 +43,7 @@ function Galery(props) {
   return (
     <div className="photo-container">
       <h2>{title}</h2>
-      <small>total results: {amountOfResults}</small>
+      <small>Total Results: {amountOfResults}</small>
       <ul className="photo-results">{allImages}</ul>
       <Pages numberOfPages={numberOfPages} curentPage={curentPage} setPage={setPage}/>
     </div>
