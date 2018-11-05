@@ -101,7 +101,7 @@ class App extends Component {
         console.log(response.data);
         this.setState( (state, props) =>({
           images: response.data.photos.photo,
-          amount: response.data.photos.total,
+          amountOfResults: response.data.photos.total,
           numberOfPages: response.data.photos.pages,
           loading: false,
           searchQuery: query
@@ -135,7 +135,7 @@ class App extends Component {
 
 
   render() {
-    const { photoIndex, isOpen, images, amount, numberOfPages, curentPage, searchQuery, navLinks, loading, HandleSearch } = this.state;
+    const { photoIndex, isOpen, images, amountOfResults, numberOfPages, curentPage, searchQuery, navLinks, loading, HandleSearch } = this.state;
     return (
       <div className="container size-101vh">
 
@@ -178,7 +178,7 @@ class App extends Component {
             this.preformSearch(match.params.query);
             return(
               <Galery
-                amountOfResults={amount}
+                amountOfResults={amountOfResults}
                 BuildFlikerUrl={this.BuildFlikerUrl}
                 curentPage={curentPage}
                 HandleImageClick={this.HandleImageClick}
