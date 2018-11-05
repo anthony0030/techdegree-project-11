@@ -21,20 +21,22 @@ function ImageList(props) {
   let gotResults = results.length > 0;
 
   if(loading){
-    return(<p>LOADDDDDDDINGGGGGG</p>)
+    return( <p>LOADDDDDDDINGGGGGG</p> );
+  }
+
+  if(!gotResults){
+    return( <NotFound title={title} /> );
   }
 
   return (
-    gotResults ?
-      <div className="photo-container">
-        <h2>{title}</h2>
-        <small>total results: {amount}</small>
-        <ul className="photo-results">{images}</ul>
-        <Pages numberOfPages={numberOfPages} curentPage={curentPage} setPage={setPage}/>
-      </div>
-    :
-    <NotFound title={title} /> 
+    <div className="photo-container">
+      <h2>{title}</h2>
+      <small>total results: {amount}</small>
+      <ul className="photo-results">{images}</ul>
+      <Pages numberOfPages={numberOfPages} curentPage={curentPage} setPage={setPage}/>
+    </div>
   );
+
 }
 
 ImageList.propTypes = {
