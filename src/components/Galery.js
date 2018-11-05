@@ -11,10 +11,9 @@ function Galery(props) {
       { loading ?
         <p>loading...</p>
         :
-        <React.Fragment>
-          <ImageList results={images} title={title} amount={amount} HandleImageClick={HandleImageClick} BuildFlikerUrl={BuildFlikerUrl}/>
-          <Pages numberOfPages={numberOfPages} curentPage={curentPage} setPage={setPage}/>
-        </React.Fragment>
+        <ImageList results={images} title={title} amount={amount} HandleImageClick={HandleImageClick} BuildFlikerUrl={BuildFlikerUrl} setPage={setPage} 
+        curentPage={curentPage} numberOfPages={numberOfPages}
+        />
       }
     </div>
   );
