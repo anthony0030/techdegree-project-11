@@ -140,7 +140,7 @@ class App extends Component {
 
   setPage = (event) => {
     PageChange = true;
-    const pageToSet = parseInt(event.target.value);
+    const pageToSet = Number(event.target.value);
     // console.log("im setting the page to a type of: ", typeof(pageToSet))
     // console.log("page set to:", pageToSet);
     this.setState({ curentPage: pageToSet });
@@ -201,7 +201,7 @@ class App extends Component {
               <Galery
                 amountOfResults={amountOfResults}
                 buildFlikerUrl={this.buildFlikerUrl}
-                curentPage={parseInt(match.params.page)}
+                curentPage={Number(match.params.page)}
                 HandleImageClick={this.HandleImageClick}
                 images={images}
                 loading={loading}
