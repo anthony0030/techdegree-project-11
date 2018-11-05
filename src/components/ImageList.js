@@ -5,7 +5,7 @@ import NotFound from "./NotFound";
 
 // Returns a list of images or a no results page depending on the data passed to it
 function ImageList(props) {
-  const {results, title, BuildFlikerUrl, HandleImageClick} = props
+  const {results, title, amount, BuildFlikerUrl, HandleImageClick} = props
 
   const images = results.map((image, index) => (
     <Image
@@ -23,6 +23,7 @@ function ImageList(props) {
     gotResults ?
       <React.Fragment>
         <h2>{title}</h2>
+        <small>total results: {amount}</small>
         <ul>{images}</ul>
       </React.Fragment>
     :
@@ -33,6 +34,7 @@ function ImageList(props) {
 ImageList.propTypes = {
   results: PropTypes.array.isRequired,
   title: PropTypes.string.isRequired,
+  amount: PropTypes.string.isRequired,
   BuildFlikerUrl: PropTypes.func.isRequired,
   HandleImageClick: PropTypes.func.isRequired
 };

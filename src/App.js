@@ -26,6 +26,7 @@ class App extends Component {
       numberOfImagesPerPage: 48,
       safeSearch: 1,
       images: [],
+      amount: 0,
       loading: true,
       searchQuery: "",
       photoIndex: 0,
@@ -90,6 +91,7 @@ class App extends Component {
       .then((response) => {
         this.setState( (state, props) =>({
           images: response.data.photos.photo,
+          amount: response.data.photos.total,
           loading: false,
           searchQuery: query
         }));
@@ -112,7 +114,7 @@ class App extends Component {
   };
 
   render() {
-    const { photoIndex, isOpen, images } = this.state;
+    const { photoIndex, isOpen, images, amount } = this.state;
     return (
       <div className="container size-101vh">
 
@@ -157,6 +159,7 @@ class App extends Component {
               <Galery
                 title={this.state.searchQuery}
                 images={this.state.images}
+                amount={amount}
                 loading={this.state.loading}
                 HandleImageClick={this.HandleImageClick}
                 BuildFlikerUrl={this.BuildFlikerUrl}
