@@ -16,6 +16,7 @@ import E404 from "./components/E404";
 
 
 let allowSearch = true;
+let PageChange = false;
 
 class App extends Component {
   constructor() {
@@ -24,6 +25,8 @@ class App extends Component {
       apiKey: process.env.REACT_APP_FLICKR_API_KEY,
       navLinks: ["Cats", "Dogs", "Computers", "Coffee"],
       numberOfImagesPerPage: 48,
+      numberOfPages: 0,
+      curentPage: 1,
       safeSearch: 1,
       images: [],
       amount: "0",
@@ -33,6 +36,9 @@ class App extends Component {
       isOpen: false
     };
   }
+
+// numberOfImagesPerPage setting
+// How may images to load per page
 
 
 // Safe search setting:
@@ -72,8 +78,9 @@ class App extends Component {
   preformSearch = (query) => {
     // console.log("Search query is diferant from the current one:", query !== this.state.searchQuery, query, this.state.searchQuery)
     // console.log("Program is allowed to search for images on api:", allowSearch)
-    if((query !== this.state.searchQuery) && allowSearch){
+    if(((query !== this.state.searchQuery) && allowSearch)||PageChange){
       allowSearch = false;
+      PageChange = false;
       const SearchUrl = 
         `
           https://api.flickr.com/services/rest/
@@ -84,14 +91,17 @@ class App extends Component {
           &format=json
           &nojsoncallback=1
           &tags=${query}
+          &page=${this.state.curentPage}
         `.replace(/\s+/g, "")// This will remove the spaces from the multi-line code indentation //
 
       axios
       .get(SearchUrl)
       .then((response) => {
+        console.log(response.data);
         this.setState( (state, props) =>({
           images: response.data.photos.photo,
           amount: response.data.photos.total,
+          numberOfPages: response.data.photos.pages,
           loading: false,
           searchQuery: query
         }));
@@ -113,8 +123,18 @@ class App extends Component {
     return false;
   };
 
+  setPage = (event) => {
+    PageChange = true;
+    const pageToSet = parseInt(event.target.value);
+    // console.log("im setting the page to a type of: ", typeof(pageToSet))
+    // console.log("page set to:", pageToSet);
+    this.setState({ curentPage: pageToSet });
+  }
+
+
+
   render() {
-    const { photoIndex, isOpen, images, amount } = this.state;
+    const { photoIndex, isOpen, images, amount, numberOfPages, curentPage } = this.state;
     return (
       <div className="container size-101vh">
 
@@ -160,9 +180,12 @@ class App extends Component {
                 title={this.state.searchQuery}
                 images={this.state.images}
                 amount={amount}
+                curentPage={curentPage}
+                numberOfPages={numberOfPages}
                 loading={this.state.loading}
                 HandleImageClick={this.HandleImageClick}
                 BuildFlikerUrl={this.BuildFlikerUrl}
+                setPage={this.setPage}
               />
             );
           }}/>

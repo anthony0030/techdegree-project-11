@@ -1,3 +1,30 @@
+
+.change-page_list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.change-page_button-button{
+  background: #438bbd;
+  border: none;
+  border-radius: 3px;
+  padding: 15px;
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.change-page_button-button.active{
+  background-color: #275270;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.change-page_button-button:disabled{
+  background-color: #425460;
+  cursor: not-allowed;
+}
+
 body {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
