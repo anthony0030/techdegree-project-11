@@ -1,27 +1,66 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ImageList from "./ImageList";
+import Image from "./Image";
+import NotFound from "./NotFound";
 import Pages from "./Pages";
 
-//returns a loading screen or a image list depending on the load prop
+
 function Galery(props) {
-   const {images, title, amount, curentPage, numberOfPages, loading, HandleImageClick, BuildFlikerUrl, setPage} = props;
-  return(
-        <ImageList results={images} title={title} amount={amount} HandleImageClick={HandleImageClick} BuildFlikerUrl={BuildFlikerUrl} setPage={setPage} 
-        curentPage={curentPage} numberOfPages={numberOfPages} loading={loading}/>
+
+  const {
+    amount,
+    BuildFlikerUrl,
+    curentPage,
+    HandleImageClick,
+    images,
+    loading,
+    numberOfPages,
+    setPage,
+    title
+  } = props;
+
+  // if the application is loading it will return a loading screen
+  if(loading){
+    return( <p>loading...</p> );
+  }
+
+  // is there are no results it will return no results warning
+  let gotResults = images.length > 0;
+  if(!gotResults){
+    return( <NotFound title={title} /> );
+  }
+
+  const allImages = images.map((image, index) => (
+    <Image
+      url={BuildFlikerUrl(image)}
+      title={image.title}
+      key={image.id}
+      index={index}
+      HandleImageClick={HandleImageClick}
+    />
+  ));
+
+  return (
+    <div className="photo-container">
+      <h2>{title}</h2>
+      <small>total results: {amount}</small>
+      <ul className="photo-results">{allImages}</ul>
+      <Pages numberOfPages={numberOfPages} curentPage={curentPage} setPage={setPage}/>
+    </div>
   );
+
 }
 
 Galery.propTypes = {
-  title: PropTypes.string.isRequired,
   amount: PropTypes.string.isRequired,
-  numberOfPages: PropTypes.number.isRequired,
+  BuildFlikerUrl: PropTypes.func.isRequired,
   curentPage: PropTypes.number.isRequired,
+  HandleImageClick: PropTypes.func.isRequired,
   images: PropTypes.array.isRequired,
   loading: PropTypes.bool.isRequired,
-  BuildFlikerUrl: PropTypes.func.isRequired,
-  HandleImageClick: PropTypes.func.isRequired,
-  setPage: PropTypes.func.isRequired
+  numberOfPages: PropTypes.number.isRequired,
+  setPage: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired
 };
 
 export default Galery;

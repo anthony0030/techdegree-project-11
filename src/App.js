@@ -177,15 +177,15 @@ class App extends Component {
             this.preformSearch(match.params.query);
             return(
               <Galery
-                title={searchQuery}
-                images={images}
                 amount={amount}
-                curentPage={curentPage}
-                numberOfPages={numberOfPages}
-                loading={loading}
-                HandleImageClick={this.HandleImageClick}
                 BuildFlikerUrl={this.BuildFlikerUrl}
+                curentPage={curentPage}
+                HandleImageClick={this.HandleImageClick}
+                images={images}
+                loading={loading}
+                numberOfPages={numberOfPages}
                 setPage={this.setPage}
+                title={searchQuery}
               />
             );
           }}/>
