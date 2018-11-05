@@ -64,6 +64,13 @@ class App extends Component {
     })
   }
 
+  setSafeSearch = (event) => {
+    const safeSearchSetting = event.target.value;
+    // console.log(safeSearchSetting);
+    PageChange = true;
+    this.setState({ safeSearch: safeSearchSetting });
+  }
+
 
 // if the search query is different from the current one it will set the state to be loading and send the browser to the new search
   HandleSearch = (event) => {
@@ -167,6 +174,7 @@ class App extends Component {
         <MainNavigation
           links={navLinks}
           HandleClick={this.HandleMainNavigationVisit}
+          setSafeSearch={this.setSafeSearch}
         />
         <Switch>
 
