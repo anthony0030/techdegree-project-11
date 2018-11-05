@@ -29,7 +29,7 @@ class App extends Component {
       curentPage: 1,
       safeSearch: 1,
       images: [],
-      amount: "0",
+      amountOfResults: "0",
       loading: true,
       searchQuery: "",
       photoIndex: 0,
@@ -178,7 +178,7 @@ class App extends Component {
             this.preformSearch(match.params.query);
             return(
               <Galery
-                amount={amount}
+                amountOfResults={amount}
                 BuildFlikerUrl={this.BuildFlikerUrl}
                 curentPage={curentPage}
                 HandleImageClick={this.HandleImageClick}

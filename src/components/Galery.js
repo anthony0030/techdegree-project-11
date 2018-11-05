@@ -8,7 +8,7 @@ import Pages from "./Pages";
 function Galery(props) {
 
   const {
-    amount,
+    amountOfResults,
     BuildFlikerUrl,
     curentPage,
     HandleImageClick,
@@ -43,7 +43,7 @@ function Galery(props) {
   return (
     <div className="photo-container">
       <h2>{title}</h2>
-      <small>total results: {amount}</small>
+      <small>total results: {amountOfResults}</small>
       <ul className="photo-results">{allImages}</ul>
       <Pages numberOfPages={numberOfPages} curentPage={curentPage} setPage={setPage}/>
     </div>
@@ -52,7 +52,7 @@ function Galery(props) {
 }
 
 Galery.propTypes = {
-  amount: PropTypes.string.isRequired,
+  amountOfResults: PropTypes.string.isRequired,
   BuildFlikerUrl: PropTypes.func.isRequired,
   curentPage: PropTypes.number.isRequired,
   HandleImageClick: PropTypes.func.isRequired,
