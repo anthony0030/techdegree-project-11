@@ -1,3 +1,6 @@
+.hide {
+  display: none;
+}
 
 .change-page_list{
   display: flex;
