@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import PagesButton from "./PagesButton";
+
 
 // Returns a list a page selector
 function Pages(props) {
@@ -8,40 +10,13 @@ function Pages(props) {
   return (
     <nav aria-label="Page navigation">
       <ul className="change-page_list">
-
-        <li className="change-page_button-container">
-          <button className="change-page_button-button" onClick={setPage} value={curentPage-1} disabled={curentPage<=1? true : false}> Previous</button>
-        </li>
-
-        { numberOfPages<=curentPage?
-          <li className="change-page_button-container">
-            <button className="change-page_button-button" onClick={setPage} value={curentPage-2} >{curentPage-2}</button>
-          </li>
-        : null }
-
-        { curentPage>1?
-          <li className="change-page_button-container">
-            <button className="change-page_button-button" onClick={setPage} value={curentPage-1} >{curentPage-1}</button>
-          </li>
-        : null }
-
-        <li className="change-page_button-container">
-          <button className="change-page_button-button active" onClick={setPage} value={curentPage} >{curentPage}</button>
-        </li>
-        { curentPage<numberOfPages?
-          <li className="change-page_button-container">
-            <button className="change-page_button-button" onClick={setPage} value={curentPage+1} >{curentPage+1}</button>
-          </li>
-        : null }
-        {curentPage<=1?
-          <li className="change-page_button-container">
-            <button className="change-page_button-button" onClick={setPage} value={curentPage+2} >{curentPage+2}</button>
-            </li>
-        : null }
-        <li className="change-page_button-container">
-          <button className="change-page_button-button" onClick={setPage} value={curentPage+1} disabled={numberOfPages<=curentPage? true : false} >Next</button>
-        </li>
-
+        <PagesButton setPage={setPage} text="Previous" value={curentPage-1} disabled={curentPage<=1? true : false}/>
+        <PagesButton setPage={setPage} text={curentPage-2} value={curentPage-2} hide={numberOfPages>curentPage} />
+        <PagesButton setPage={setPage} text={curentPage-1} value={curentPage-1} hide={curentPage<=1} />
+        <PagesButton setPage={setPage} text={curentPage} value={curentPage} className="active" />
+        <PagesButton setPage={setPage} text={curentPage+1} value={curentPage+1} hide={curentPage>=numberOfPages} />
+        <PagesButton setPage={setPage} text={curentPage+2} value={curentPage+2} hide={curentPage>1} />
+        <PagesButton setPage={setPage} text="Next" value={curentPage+1} disabled={numberOfPages<=curentPage? true : false}/>
       </ul>
     </nav>
   );
