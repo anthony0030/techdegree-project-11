@@ -23,7 +23,7 @@ function SearchForm(props) {
 
 SearchForm.propTypes = {
   HandleSearch: PropTypes.func.isRequired,
-  searchQuery: PropTypes.string.isRequired
+  searchQuery: PropTypes.string
 };
 
 export default SearchForm;
