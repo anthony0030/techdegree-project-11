@@ -78,7 +78,7 @@ class App extends Component {
   preformSearch = (query, page) => {
     // console.log("Search query is diferant from the current one:", query !== this.state.searchQuery, query, this.state.searchQuery)
     // console.log("Program is allowed to search for images on api:", allowSearch)
-    const { apiKey, safeSearch, numberOfImagesPerPage, curentPage} = this.state;
+    const { apiKey, safeSearch, numberOfImagesPerPage } = this.state;
     if(((query !== this.state.searchQuery) && allowSearch)||PageChange){
       allowSearch = false;
       PageChange = false;
@@ -98,7 +98,7 @@ class App extends Component {
       axios
       .get(SearchUrl)
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         this.setState( (state, props) =>({
           images: response.data.photos.photo,
           amountOfResults: response.data.photos.total,
@@ -135,7 +135,7 @@ class App extends Component {
 
 
   render() {
-    const { photoIndex, isOpen, images, amountOfResults, numberOfPages, curentPage, searchQuery, navLinks, loading, HandleSearch } = this.state;
+    const { photoIndex, isOpen, images, amountOfResults, numberOfPages, searchQuery, navLinks, loading } = this.state;
     return (
       <div className="container size-101vh">
 
