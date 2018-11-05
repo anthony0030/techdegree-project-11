@@ -24,7 +24,7 @@ class App extends Component {
     this.state = {
       apiKey: process.env.REACT_APP_FLICKR_API_KEY,
       navLinks: ["Cats", "Dogs", "Computers", "Coffee"],
-      numberOfImagesPerPage: 48,
+      numberOfImagesPerPage: 40,
       numberOfPages: 0,
       curentPage: 1,
       safeSearch: 1,
@@ -69,6 +69,14 @@ class App extends Component {
     // console.log(safeSearchSetting);
     PageChange = true;
     this.setState({ safeSearch: safeSearchSetting });
+  }
+
+  setImagesPerPage = (event) => {
+    const ImagesPerPageSetting = event.target.value;
+    console.log(ImagesPerPageSetting);
+    PageChange = true;
+    this.setState({ numberOfImagesPerPage: ImagesPerPageSetting });
+    // this.preformSearch(this.state.searchQuery, this.state.curentPage)
   }
 
 
@@ -175,6 +183,7 @@ class App extends Component {
           links={navLinks}
           HandleClick={this.HandleMainNavigationVisit}
           setSafeSearch={this.setSafeSearch}
+          setImagesPerPage={this.setImagesPerPage}
         />
         <Switch>
 
