@@ -26,7 +26,7 @@ class App extends Component {
       numberOfImagesPerPage: 48,
       safeSearch: 1,
       images: [],
-      amount: 0,
+      amount: "0",
       loading: true,
       searchQuery: "",
       photoIndex: 0,

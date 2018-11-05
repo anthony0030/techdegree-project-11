@@ -18,7 +18,7 @@ function Galery(props) {
 
 Galery.propTypes = {
   title: PropTypes.string.isRequired,
-  amount: PropTypes.number.isRequired,
+  amount: PropTypes.string.isRequired,
   images: PropTypes.array.isRequired,
   loading: PropTypes.bool.isRequired,
   BuildFlikerUrl: PropTypes.func.isRequired,
