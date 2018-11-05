@@ -78,6 +78,7 @@ class App extends Component {
   preformSearch = (query) => {
     // console.log("Search query is diferant from the current one:", query !== this.state.searchQuery, query, this.state.searchQuery)
     // console.log("Program is allowed to search for images on api:", allowSearch)
+    const { apiKey, safeSearch, numberOfImagesPerPage, curentPage} = this.state;
     if(((query !== this.state.searchQuery) && allowSearch)||PageChange){
       allowSearch = false;
       PageChange = false;
@@ -85,13 +86,13 @@ class App extends Component {
         `
           https://api.flickr.com/services/rest/
           ?method=flickr.photos.search
-          &api_key=${this.state.apiKey}
-          &safe_search=${this.state.safeSearch}
-          &per_page=${this.state.numberOfImagesPerPage}
+          &api_key=${apiKey}
+          &safe_search=${safeSearch}
+          &per_page=${numberOfImagesPerPage}
           &format=json
           &nojsoncallback=1
           &tags=${query}
-          &page=${this.state.curentPage}
+          &page=${curentPage}
         `.replace(/\s+/g, "")// This will remove the spaces from the multi-line code indentation //
 
       axios
