@@ -6,7 +6,7 @@ function NotFound(props){
   return(
     <div className="not-found">
       <h3>No Results Found</h3>
-      <p>You search for <strong>{props}</strong> did not return any results. Please try again.</p>
+      <p>You search for <strong>{title}</strong> did not return any results. Please try again.</p>
     </div>
   );
 }
