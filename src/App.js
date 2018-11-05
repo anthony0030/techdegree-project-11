@@ -70,12 +70,12 @@ class App extends Component {
     event.preventDefault();
     const searchQuery = event.target.querySelector("#SearchQery").value.toLowerCase();
     if( this.setLoading(searchQuery)){
-      this.props.history.push(searchQuery)
+      this.props.history.push(`/${searchQuery}`)
     }
   }
 
   // preformSearch requests data from flickr then sets the loading state to be false
-  preformSearch = (query) => {
+  preformSearch = (query, page) => {
     // console.log("Search query is diferant from the current one:", query !== this.state.searchQuery, query, this.state.searchQuery)
     // console.log("Program is allowed to search for images on api:", allowSearch)
     const { apiKey, safeSearch, numberOfImagesPerPage, curentPage} = this.state;
@@ -92,7 +92,7 @@ class App extends Component {
           &format=json
           &nojsoncallback=1
           &tags=${query}
-          &page=${curentPage}
+          &page=${page}
         `.replace(/\s+/g, "")// This will remove the spaces from the multi-line code indentation //
 
       axios
@@ -173,18 +173,22 @@ class App extends Component {
           {/*If you visit the root page it will take you to the cats page*/}
           <Redirect exact from="/" to="/cats"/>
 
+          {/*If you search without having a page set you will default to page one*/}
+          <Redirect exact from="/:query" to="/:query/1"/>
+
           {/*Any path in the root directory will preform a search*/}
-          <Route exact path="/:query" render= { ({match}) =>{
-            this.preformSearch(match.params.query);
+          <Route exact path="/:query/:page?" render= { ({match}) =>{
+            this.preformSearch(match.params.query, match.params.page);
             return(
               <Galery
                 amountOfResults={amountOfResults}
                 BuildFlikerUrl={this.BuildFlikerUrl}
-                curentPage={curentPage}
+                curentPage={parseInt(match.params.page)}
                 HandleImageClick={this.HandleImageClick}
                 images={images}
                 loading={loading}
                 numberOfPages={numberOfPages}
+                searchQuery={searchQuery}
                 setPage={this.setPage}
                 title={searchQuery}
               />

@@ -15,6 +15,7 @@ function Galery(props) {
     images,
     loading,
     numberOfPages,
+    searchQuery,
     setPage,
     title
   } = props;
@@ -45,7 +46,7 @@ function Galery(props) {
       <h2>{title}</h2>
       <small>Total Results: {amountOfResults}</small>
       <ul className="photo-results">{allImages}</ul>
-      <Pages numberOfPages={numberOfPages} curentPage={curentPage} setPage={setPage}/>
+      <Pages numberOfPages={numberOfPages} curentPage={curentPage} setPage={setPage} searchQuery={searchQuery}/>
     </div>
   );
 
@@ -59,6 +60,7 @@ Galery.propTypes = {
   images: PropTypes.array.isRequired,
   loading: PropTypes.bool.isRequired,
   numberOfPages: PropTypes.number.isRequired,
+  searchQuery: PropTypes.string.isRequired,
   setPage: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired
 };
