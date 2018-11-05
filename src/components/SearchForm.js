@@ -4,14 +4,15 @@ import SearchIcon from "./search.svg";
 
 function SearchForm(props) {
   // returns a search form
+  const { HandleSearch, searchQuery } = props;
   return (
-    <form className="search-form" onSubmit={props.HandleSearch}>
+    <form className="search-form" onSubmit={HandleSearch}>
       <input
         id="SearchQery"
         type="search"
         name="search"
         placeholder="Search"
-        defaultValue={props.searchQuery}
+        defaultValue={searchQuery}
         required/>
       <button type="submit" className="search-button">
         <img src={SearchIcon} alt="SearchIcon" />
