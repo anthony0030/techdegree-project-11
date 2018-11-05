@@ -52,7 +52,7 @@ class App extends Component {
   }
 
 
-  BuildFlikerUrl(image){
+  buildFlikerUrl(image){
     return(`https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`);
   }
 
@@ -155,9 +155,9 @@ class App extends Component {
         <h1>Fliker Search Engine</h1>
         {isOpen && (
           <Lightbox
-            mainSrc={this.BuildFlikerUrl(images[photoIndex])}
-            nextSrc={this.BuildFlikerUrl(images[(photoIndex + 1) % images.length])}
-            prevSrc={this.BuildFlikerUrl(images[(photoIndex + images.length - 1) % images.length])}
+            mainSrc={this.buildFlikerUrl(images[photoIndex])}
+            nextSrc={this.buildFlikerUrl(images[(photoIndex + 1) % images.length])}
+            prevSrc={this.buildFlikerUrl(images[(photoIndex + images.length - 1) % images.length])}
             imageTitle={images[photoIndex].title}
             imageCaption={images[photoIndex].title}
             onCloseRequest={() => this.setState({ isOpen: false })}
@@ -200,7 +200,7 @@ class App extends Component {
             return(
               <Galery
                 amountOfResults={amountOfResults}
-                BuildFlikerUrl={this.BuildFlikerUrl}
+                buildFlikerUrl={this.buildFlikerUrl}
                 curentPage={parseInt(match.params.page)}
                 HandleImageClick={this.HandleImageClick}
                 images={images}

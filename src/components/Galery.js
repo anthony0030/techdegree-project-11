@@ -9,7 +9,7 @@ function Galery(props) {
 
   const {
     amountOfResults,
-    BuildFlikerUrl,
+    buildFlikerUrl,
     curentPage,
     HandleImageClick,
     images,
@@ -33,7 +33,7 @@ function Galery(props) {
 
   const allImages = images.map((image, index) => (
     <Image
-      url={BuildFlikerUrl(image)}
+      url={buildFlikerUrl(image)}
       title={image.title}
       key={image.id}
       index={index}
@@ -54,7 +54,7 @@ function Galery(props) {
 
 Galery.propTypes = {
   amountOfResults: PropTypes.string.isRequired,
-  BuildFlikerUrl: PropTypes.func.isRequired,
+  buildFlikerUrl: PropTypes.func.isRequired,
   curentPage: PropTypes.number.isRequired,
   HandleImageClick: PropTypes.func.isRequired,
   images: PropTypes.array.isRequired,
