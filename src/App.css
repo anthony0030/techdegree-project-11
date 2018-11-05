@@ -6,6 +6,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin: 50px 0;
 }
 
 .change-page_button-button{
@@ -118,6 +119,10 @@ input {
   width: 100%;
 }
 
+.settings_item{
+  padding: 10px;
+}
+
 @media only screen and (max-width: 767px) {
   body {
     padding-top: 2em;
@@ -142,5 +147,12 @@ input {
   .main-nav li {
     margin: 10px;
     width: 100px;
+  }
+  .settings_container{
+    display: flex;
+    justify-content: center;
+  }
+  .settings_item{
+    margin-left: 10px;
   }
 }

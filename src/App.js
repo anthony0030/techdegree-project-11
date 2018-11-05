@@ -76,7 +76,6 @@ class App extends Component {
     console.log(ImagesPerPageSetting);
     PageChange = true;
     this.setState({ numberOfImagesPerPage: ImagesPerPageSetting });
-    // this.preformSearch(this.state.searchQuery, this.state.curentPage)
   }
 
 
@@ -150,10 +149,10 @@ class App extends Component {
 
 
   render() {
-    const { photoIndex, isOpen, images, amountOfResults, numberOfPages, searchQuery, navLinks, loading } = this.state;
+    const { photoIndex, isOpen, images, amountOfResults, numberOfPages, searchQuery, navLinks, loading, numberOfImagesPerPage, safeSearch } = this.state;
     return (
       <div className="container size-101vh">
-
+        <h1>Fliker Search Engine</h1>
         {isOpen && (
           <Lightbox
             mainSrc={this.BuildFlikerUrl(images[photoIndex])}
@@ -183,7 +182,9 @@ class App extends Component {
           links={navLinks}
           HandleClick={this.HandleMainNavigationVisit}
           setSafeSearch={this.setSafeSearch}
+          safeSearch={safeSearch}
           setImagesPerPage={this.setImagesPerPage}
+          numberOfImagesPerPage={numberOfImagesPerPage}
         />
         <Switch>
 
