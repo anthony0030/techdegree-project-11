@@ -6,7 +6,7 @@ import Pages from "./Pages";
 
 // Returns a list of images or a no results page depending on the data passed to it
 function ImageList(props) {
-  const {results, title, amount, BuildFlikerUrl, HandleImageClick, setPage, curentPage, numberOfPages} = props
+  const {results, title, amount, BuildFlikerUrl, HandleImageClick, setPage, curentPage, numberOfPages, loading} = props
 
   const images = results.map((image, index) => (
     <Image
@@ -20,14 +20,18 @@ function ImageList(props) {
 
   let gotResults = results.length > 0;
 
+  if(loading){
+    return(<p>LOADDDDDDDINGGGGGG</p>)
+  }
+
   return (
     gotResults ?
-      <React.Fragment>
+      <div className="photo-container">
         <h2>{title}</h2>
         <small>total results: {amount}</small>
         <ul className="photo-results">{images}</ul>
         <Pages numberOfPages={numberOfPages} curentPage={curentPage} setPage={setPage}/>
-      </React.Fragment>
+      </div>
     :
     <NotFound title={title} /> 
   );

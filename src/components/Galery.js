@@ -7,15 +7,8 @@ import Pages from "./Pages";
 function Galery(props) {
    const {images, title, amount, curentPage, numberOfPages, loading, HandleImageClick, BuildFlikerUrl, setPage} = props;
   return(
-    <div className="photo-container">
-      { loading ?
-        <p>loading...</p>
-        :
         <ImageList results={images} title={title} amount={amount} HandleImageClick={HandleImageClick} BuildFlikerUrl={BuildFlikerUrl} setPage={setPage} 
-        curentPage={curentPage} numberOfPages={numberOfPages}
-        />
-      }
-    </div>
+        curentPage={curentPage} numberOfPages={numberOfPages} loading={loading}/>
   );
 }
 
