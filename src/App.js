@@ -152,7 +152,7 @@ class App extends Component {
     const { photoIndex, isOpen, images, amountOfResults, numberOfPages, searchQuery, navLinks, loading, numberOfImagesPerPage, safeSearch } = this.state;
     return (
       <div className="container size-101vh">
-        <h1>Fliker Search Engine</h1>
+        <h1>Flickr Search Engine</h1>
         {isOpen && (
           <Lightbox
             mainSrc={this.buildFlikerUrl(images[photoIndex])}
