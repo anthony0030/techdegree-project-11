@@ -2,6 +2,8 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/630d8b9691f349d5bd6f37c534a23498)](https://www.codacy.com/app/anthony0030/techdegree-project-11?utm_source=github.com&utm_medium=referral&utm_content=anthony0030/techdegree-project-11&utm_campaign=Badge_Grade)
 
+ [![Known Vulnerabilities](https://snyk.io/test/github/anthony0030/techdegree-project-11/badge.svg)](https://snyk.io/test/github/anthony0030/techdegree-project-11)
+
 In this project, I built an image gallery using React and the Flickr API. I used [create-react-app](https://github.com/facebook/create-react-app). You can see a [running copy of my project on Github pages](https://anthony0030.github.io/techdegree-project-11).
 
 The project had a few requirements:
