@@ -58,7 +58,7 @@ class App extends Component {
 
   HandleImageClick = (event) => {
     const photoIndex = event.target.getAttribute("index");
-    this.setState({ 
+    this.setState({
       isOpen: true,
       photoIndex: photoIndex
     });
@@ -90,13 +90,13 @@ class App extends Component {
 
   // preformSearch requests data from flickr then sets the loading state to be false
   preformSearch = (query, page) => {
-    // console.log("Search query is diferant from the current one:", query !== this.state.searchQuery, query, this.state.searchQuery)
+    // console.log("Search query is different from the current one:", query !== this.state.searchQuery, query, this.state.searchQuery)
     // console.log("Program is allowed to search for images on api:", allowSearch)
     const { apiKey, safeSearch, numberOfImagesPerPage } = this.state;
     if(((query !== this.state.searchQuery) && allowSearch)||PageChange){
       allowSearch = false;
       PageChange = false;
-      const SearchUrl = 
+      const SearchUrl =
         `
           https://api.flickr.com/services/rest/
           ?method=flickr.photos.search
