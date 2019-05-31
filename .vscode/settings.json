@@ -1,6 +1,16 @@
 {
   "cSpell.words": [
+    "Codacy",
+    "FLICKR",
+    "Fliker",
     "browserslist",
-    "predeploy"
-  ]
+    "nbsp",
+    "nojsoncallback",
+    "onstatechange",
+    "onupdatefound",
+    "predeploy",
+    "presentational",
+    "unmount"
+  ],
+  "cSpell.allowCompoundWords": true
 }
