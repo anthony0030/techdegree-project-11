@@ -8,7 +8,7 @@ function SearchForm(props) {
   return (
     <form className="search-form" onSubmit={HandleSearch}>
       <input
-        id="SearchQery"
+        id="SearchQuery"
         type="search"
         name="search"
         placeholder="Search"

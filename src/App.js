@@ -82,7 +82,7 @@ class App extends Component {
 // if the search query is different from the current one it will set the state to be loading and send the browser to the new search
   HandleSearch = (event) => {
     event.preventDefault();
-    const searchQuery = event.target.querySelector("#SearchQery").value.toLowerCase();
+    const searchQuery = event.target.querySelector("#SearchQuery").value.toLowerCase();
     if( this.setLoading(searchQuery)){
       this.props.history.push(`/${searchQuery}`);
     }
