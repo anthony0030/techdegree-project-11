@@ -1,8 +1,13 @@
 {
-  "homepage": "https://anthony0030.github.io/techdegree-project-11",
   "name": "techdegree-project-11",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://anthony0030@github.com/anthony0030/techdegree-project-11.git"
+  },
+  "author": "Anthony Veaudry",
+  "license": "UNLICENSED",
+  "homepage": "https://anthony0030.github.io/techdegree-project-11",
   "dependencies": {
     "axios": "^0.19.2",
     "eslint": "^6.8.0",
