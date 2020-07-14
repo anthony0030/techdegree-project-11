@@ -10,8 +10,6 @@
   "homepage": "https://anthony0030.github.io/techdegree-project-11",
   "dependencies": {
     "axios": "^0.19.2",
-    "eslint": "^7.4.0",
-    "eslint-plugin-flowtype": "^5.2.0",
     "lightbox-react": "^0.3.7",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
