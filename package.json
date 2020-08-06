@@ -10,7 +10,7 @@
   "homepage": "https://anthony0030.github.io/techdegree-project-11",
   "dependencies": {
     "axios": "^0.19.2",
-    "lightbox-react": "^0.3.7",
+    "lightbox-react": "^0.3.8",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
