@@ -1,27 +1,25 @@
 {
   "files": {
-    "main.css": "/techdegree-project-11/static/css/main.b1d56abb.chunk.css",
-    "main.js": "/techdegree-project-11/static/js/main.3c864dff.chunk.js",
-    "main.js.map": "/techdegree-project-11/static/js/main.3c864dff.chunk.js.map",
-    "runtime-main.js": "/techdegree-project-11/static/js/runtime-main.1c1158b5.js",
-    "runtime-main.js.map": "/techdegree-project-11/static/js/runtime-main.1c1158b5.js.map",
-    "static/css/2.da5300f4.chunk.css": "/techdegree-project-11/static/css/2.da5300f4.chunk.css",
-    "static/js/2.07ed1976.chunk.js": "/techdegree-project-11/static/js/2.07ed1976.chunk.js",
-    "static/js/2.07ed1976.chunk.js.map": "/techdegree-project-11/static/js/2.07ed1976.chunk.js.map",
+    "main.css": "/techdegree-project-11/static/css/main.b80ecf86.chunk.css",
+    "main.js": "/techdegree-project-11/static/js/main.2337a469.chunk.js",
+    "main.js.map": "/techdegree-project-11/static/js/main.2337a469.chunk.js.map",
+    "runtime-main.js": "/techdegree-project-11/static/js/runtime-main.d739e9c3.js",
+    "runtime-main.js.map": "/techdegree-project-11/static/js/runtime-main.d739e9c3.js.map",
+    "static/css/2.098cfe87.chunk.css": "/techdegree-project-11/static/css/2.098cfe87.chunk.css",
+    "static/js/2.f0c516e3.chunk.js": "/techdegree-project-11/static/js/2.f0c516e3.chunk.js",
+    "static/js/2.f0c516e3.chunk.js.map": "/techdegree-project-11/static/js/2.f0c516e3.chunk.js.map",
     "index.html": "/techdegree-project-11/index.html",
-    "precache-manifest.ca6c9774268bebe7b067e5842a370dfd.js": "/techdegree-project-11/precache-manifest.ca6c9774268bebe7b067e5842a370dfd.js",
-    "service-worker.js": "/techdegree-project-11/service-worker.js",
-    "static/css/2.da5300f4.chunk.css.map": "/techdegree-project-11/static/css/2.da5300f4.chunk.css.map",
-    "static/css/main.b1d56abb.chunk.css.map": "/techdegree-project-11/static/css/main.b1d56abb.chunk.css.map",
-    "static/js/2.07ed1976.chunk.js.LICENSE.txt": "/techdegree-project-11/static/js/2.07ed1976.chunk.js.LICENSE.txt",
-    "static/media/404.jpg": "/techdegree-project-11/static/media/404.9e8c8c00.jpg",
-    "static/media/search.svg": "/techdegree-project-11/static/media/search.ede91782.svg"
+    "static/css/2.098cfe87.chunk.css.map": "/techdegree-project-11/static/css/2.098cfe87.chunk.css.map",
+    "static/css/main.b80ecf86.chunk.css.map": "/techdegree-project-11/static/css/main.b80ecf86.chunk.css.map",
+    "static/js/2.f0c516e3.chunk.js.LICENSE.txt": "/techdegree-project-11/static/js/2.f0c516e3.chunk.js.LICENSE.txt",
+    "static/media/404.bbea2c44.jpg": "/techdegree-project-11/static/media/404.bbea2c44.jpg",
+    "static/media/search.ca910276.svg": "/techdegree-project-11/static/media/search.ca910276.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.1c1158b5.js",
-    "static/css/2.da5300f4.chunk.css",
-    "static/js/2.07ed1976.chunk.js",
-    "static/css/main.b1d56abb.chunk.css",
-    "static/js/main.3c864dff.chunk.js"
+    "static/js/runtime-main.d739e9c3.js",
+    "static/css/2.098cfe87.chunk.css",
+    "static/js/2.f0c516e3.chunk.js",
+    "static/css/main.b80ecf86.chunk.css",
+    "static/js/main.2337a469.chunk.js"
   ]
 }
