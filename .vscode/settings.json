@@ -1,17 +1,18 @@
 {
   "cSpell.words": [
+    "browserslist",
     "Codacy",
+    "Cond",
     "FLICKR",
     "Fliker",
-    "Veaudry",
-    "browserslist",
     "nbsp",
     "nojsoncallback",
     "onstatechange",
     "onupdatefound",
     "predeploy",
     "presentational",
-    "unmount"
+    "unmount",
+    "Veaudry"
   ],
   "cSpell.allowCompoundWords": true
 }
